@@ -11,9 +11,8 @@ def ex2(values):
         sums.append(values[i]+values[i+1]+values[i+2])
     return ex1(sums)
     
-
 def main():
-    Lines = [int(k) for k in open('ex1_list.txt','r').readlines()]
+    Lines = [int(k) for k in open('AdventOfCode2021\\D1\\input.txt','r').readlines()]
     print(ex1(Lines))
     print(ex2(Lines))
 

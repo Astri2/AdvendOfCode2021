@@ -27,7 +27,7 @@ def get_new_pos(tab):
     return posX*posY
 
 def main():
-    file = open("C:\\Users\\Malo\\Documents\\dev\\python\\advent\\D2\\input.txt",'r')
+    file = open("AdventOfCode2021\\D2\\input.txt",'r')
     lines = file.readlines()
     tab=[]
     for k in lines:

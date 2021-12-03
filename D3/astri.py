@@ -46,7 +46,7 @@ def part2(lines):
     return str_b_to_int(co_tab[0])*str_b_to_int(ox_tab[0])
             
 def main():
-    file = open("C:\\Users\\Malo\\Documents\\dev\\python\\advent\\D3\\input.txt",'r')
+    file = open("AdventOfCode2021\\D2\\input.txt",'r')
     lines = [k.replace("\n","") for k in file.readlines()]
     print(part1(lines))
     print(part2(lines))
