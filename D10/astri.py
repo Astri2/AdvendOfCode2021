@@ -1,6 +1,8 @@
 import re
 
 def day10(lines):
+    p1 = re.compile(r"(\(|\[|\{|\<)")
+    p2 = re.compile(r"(\(\)|\[\]|\{\}|\<\>)")
     corr_score=0
     miss_scores=[]
     i=0
@@ -8,10 +10,10 @@ def day10(lines):
     while i < len(lines):
         line = lines[i]
         for c in line:
-            if re.match(r"(\(|\[|\{|\<)",c):
+            if re.match(p1,c):
                 chunks.append(c)
             else:
-                if re.match(r"(\(\)|\[\]|\{\}|\<\>)",chunks[-1]+c):
+                if re.match(p2,chunks[-1]+c):
                     chunks.pop()
                 else:
                     print(chunks[-1], "and",c,"are not compatible")
