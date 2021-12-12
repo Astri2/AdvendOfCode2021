@@ -29,14 +29,24 @@ def get_bassin_size(matrice,x,y):
         get_bassin_size(matrice,x,y-1+(y==0))
     )
 
-def part2(matrice):
-    matrice = deepcopy(matrice)
+from PIL import Image
+import numpy as np
+
+def part2(map):
+    w, h = 100, 100 #set size of the image
+    data = np.zeros((h, w, 3), dtype=np.uint8) #init the object data
+
+    matrice = deepcopy(map)
     bassins=[]
     for x in range(len(matrice)):
         for y in range(len(matrice[x])):
             if(matrice[x][y] != 9):
                 bassins.append(get_bassin_size(matrice,x,y))
+            data[x][y]=[255-28*map[x][y],255-28*map[x][y],255-28*map[x][y]] #set pixel color
     bassins.sort()
+    img = Image.fromarray(data, 'RGB') #convert into image
+    img.save("AdventOfCode2021\\D9\\heightmap.png") #save the image
+
     return bassins[-1]*bassins[-2]*bassins[-3]
 
 if __name__=="__main__":
