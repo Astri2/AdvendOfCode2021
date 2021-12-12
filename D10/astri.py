@@ -3,6 +3,8 @@ import re
 def day10(lines):
     p1 = re.compile(r"(\(|\[|\{|\<)")
     p2 = re.compile(r"(\(\)|\[\]|\{\}|\<\>)")
+    corr_map = { ")":3,"]":57,"}":1197,">":25137}
+    miss_map = { "(":1,"[":2,"{":3,"<":4}
     corr_score=0
     miss_scores=[]
     i=0
@@ -17,16 +19,14 @@ def day10(lines):
                     chunks.pop()
                 else:
                     print(chunks[-1], "and",c,"are not compatible")
-                    corr_score += (3 if c == ")" else 57 if c == "]" 
-                        else 1197 if c == "}" else 25137)
+                    corr_score += corr_map[c]
                     lines.remove(line)
                     chunks=[]
                     i-=1
                     break
         score=0
         while(len(chunks)!=0):
-            score=score*5 + (1 if chunks[-1] == "(" else 2 if chunks[-1] == "["
-                else 3 if chunks[-1] == "{" else 4)
+            score=score*5 + miss_map[chunks[-1]]
             chunks.pop()
         if score!=0:miss_scores.append(score)
         i+=1
