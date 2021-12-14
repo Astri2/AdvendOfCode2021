@@ -26,14 +26,14 @@ def get_path(map,pos,current_path):
 
 def get_caves_connections(input)->dict:
     dic={}
-    for left,right in input:
-        if(left in dic.keys()):
-            dic[left].append(right)
-        else : dic[left] = [right]
+    for side1,side2 in input:
+        if(side1 in dic.keys()):
+            dic[side1].append(side2)
+        else : dic[side1] = [side2]
 
-        if(right in dic.keys()):
-            dic[right].append(left)
-        else : dic[right] = [left]
+        if(side2 in dic.keys()):
+            dic[side2].append(side1)
+        else : dic[side2] = [side1]
     return(dic)
 
 def part2(map):
