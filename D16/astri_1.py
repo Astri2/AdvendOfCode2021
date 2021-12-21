@@ -4,41 +4,12 @@ def bin_to_int(bin):
     return math.floor(sum([math.pow(2,i) for i in range(len(bin)-1,-1,-1) if bin[len(bin)-1-i]=='1']))
 
 def hex_to_bin(hex):
-    bin=""
-    for val in hex:
-        if val == "0":
-            bin+="0000"
-        elif val == "1":
-            bin+="0001"
-        elif val == "2":
-            bin+="0010"
-        elif val == "3":
-            bin+="0011"
-        elif val == "4":
-            bin+="0100"
-        elif val == "5":
-            bin+="0101"
-        elif val == "6":
-            bin+="0110"
-        elif val == "7":
-            bin+="0111"
-        elif val == "8":
-            bin+="1000"
-        elif val == "9":
-            bin+="1001"
-        elif val == "A":
-            bin+="1010"
-        elif val == "B":
-            bin+="1011"
-        elif val == "C":
-            bin+="1100"
-        elif val == "D":
-            bin+="1101"
-        elif val == "E":
-            bin+="1110"
-        else: #F
-            bin+="1111"
-    return bin
+    bina=""
+    h_b={"0":"0000","1":"0001","2":"0010","3":"0011","4":"0100","5":"0101","6":"0110","7":"0111","8":"1000","9":"1001",
+         "A":"1010","B":"1011","C":"1100","D":"1101","E":"1110","F":"1111"}
+    for bit in hex: 
+        bina+=h_b[bit]
+    return bina
 
 def handle_packet_4(packet):
     has_next=True

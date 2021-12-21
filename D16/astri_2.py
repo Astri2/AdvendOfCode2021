@@ -38,7 +38,7 @@ def get_score(type,subs):
     elif type=="111":
         return subs[0] == subs[1]
     print("ERROR!")
-    return 0
+    return 0,""
 
 def handle_packet_X_0(packet,type):
     sub_packets_length=bin_to_int(packet[:15]) ; packet = packet[15:]

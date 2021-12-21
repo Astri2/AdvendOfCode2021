@@ -31,7 +31,7 @@ def fold(matrice,instructions):
     for x in range(w):
         for y in range(h):
             print("\033[0;37;41m" if matrice[x][y] else "\033[1;30;40m"," ",end="")
-            #if matrice[x][y] : data[x][y] = [(255//w)*x,(255//h)*y,255-(255//w)*x]
+            if matrice[x][y] : data[x][y] = [(255//w)*x,(255//h)*y,255-(255//w)*x]
         print()
     img = Image.fromarray(data, 'RGB') #convert into image
     img.save("AdventOfCode2021\\D13\\code.png")
